@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color="navbar">
+    <ion-title>
+      Quản lý đèn đường
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openDevicePage()">
+        <ion-icon name="md-bluetooth"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-list-header style="color: #c49000">
+      <ion-icon style="color: #c49000" name="md-sunny" item-start></ion-icon>
+      Solar
+    </ion-list-header>
+  	<ion-item>
+      <ion-icon style="color: #d03e84" name="ios-flash-outline" item-start></ion-icon>
+  	  U1
+  	  <ion-badge item-end>{{U1}} {{U1 > 0 ? 'V' : ''}}</ion-badge>
+  	</ion-item>
+
+    <ion-item>
+      <ion-icon style="color: #55acee" name="ios-battery-dead-outline" item-start></ion-icon>
+      I1
+      <ion-badge item-end>{{I1}} {{I1 > 0 ? 'mA' : ''}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <span style="color: #f57f17;" item-start>P1</span>
+      <ion-badge item-end>{{P1}} {{P1 > 0 ? 'W' : ''}}</ion-badge>
+    </ion-item>
+    
+    <ion-list-header style="color: #c49000">
+      <ion-icon style="color: #c49000" name="md-battery-charging" item-start></ion-icon>
+      Acquy
+    </ion-list-header>
+  	<ion-item>
+      <ion-icon style="color: #d03e84" name="ios-flash-outline" item-start></ion-icon>
+  	  U2
+  	  <ion-badge item-end>{{U2}} {{U2 > 0 ? 'V' : ''}}</ion-badge>
+  	</ion-item>
+
+  	<ion-item>
+      <ion-icon style="color: #55acee" name="ios-battery-dead-outline" item-start></ion-icon>
+  	  I2
+  	  <ion-badge item-end>{{I2}} {{I2 > 0 ? 'mA' : ''}}</ion-badge>
+  	</ion-item>
+
+    <ion-item>
+      <span style="color: #f57f17" item-start>P2</span>
+      <ion-badge item-end>{{P2}} {{P2 > 0 ? 'W' : ''}}</ion-badge>
+    </ion-item>
+
+ 
+    <ion-list-header style="color: #c49000">
+      <ion-icon style="color: #c49000" name="ios-bulb" item-start></ion-icon>
+      DIM Đèn
+    </ion-list-header>
+    <ion-item>
+      <ion-range [(ngModel)]="DIM" min="0" max="255" step="1" (ionChange)="sendDim()">
+        <ion-icon range-left small style="color: #55acee" name="ios-bulb-outline"></ion-icon>
+        <ion-icon range-right color="danger" name="ios-bulb-outline"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-list-header style="color: #c49000">
+      <ion-icon style="color: #c49000" name="ios-alarm" item-start></ion-icon>
+      Hẹn giờ mở đèn
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Bắt đầu</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="timeOnStart" (ionChange)="changeTimeStart()"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kết thúc</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="timeOnEnd" (ionChange)="changeTimeEnd()"></ion-datetime>
+    </ion-item>
+
+    <ion-list-header style="color: #c49000">
+      <ion-icon style="color: #c49000" name="md-calendar" item-start></ion-icon>
+      Số ngày nạp xả
+    </ion-list-header>
+    <ion-item>
+      <ion-badge style="background-color: #c49000" item-end>{{DP}} {{DP > 0 ? ' Ngày' : ''}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

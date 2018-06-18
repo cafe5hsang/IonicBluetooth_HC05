@@ -1,0 +1,27 @@
+<!--
+  Generated template for the DevicesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ghép nối thiết bị</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="searchDevices()">
+        <ion-icon name="ios-search-outline" item-start></ion-icon> Dò
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+    <button ion-button style="color: #c6a700" full clear>
+      {{device.name}}
+    </button>
+  </ion-item>
+</ion-content>
